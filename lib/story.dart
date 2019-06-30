@@ -5,9 +5,11 @@
 //TODO: Step 4 - Create a Constructor for this class to be able to initialise the properties created in step 3.
 
 class Story {
-  List<String> storyTitle = [];
+  List<String> storyTitle;
 
-  List<String> choice1 = [];
+  List<String> choice1;
 
-  List<String> choice2 = [];
+  List<String> choice2;
+
+  Story(this.storyTitle, this.choice1, this.choice2);
 }
