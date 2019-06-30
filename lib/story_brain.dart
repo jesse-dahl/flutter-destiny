@@ -63,16 +63,15 @@ class StoryBrain {
     } 
     else if(choiceNumber == 2 && _currentStory == 1) {
       _currentStory = 3;
-      //reset();
     } 
     else if(choiceNumber == 2 && _currentStory == 2) {
       _currentStory = 4;
-      //reset();
     } 
     else if(choiceNumber == 1 && _currentStory == 2) {
       _currentStory = 5;
-      //reset();
-    } 
+    } else if(_currentStory >= 3 && _currentStory < 6) {
+      reset();
+    }
   }
 
   void reset() {
