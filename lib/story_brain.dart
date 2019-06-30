@@ -3,7 +3,7 @@ import 'story.dart';
 //TODO: Step 5 - Create a new class called StoryBrain.
 
 //TODO: Step 7 - Uncomment the lines below to include storyData as a private property in StoryBrain. Hint: You might need to change something in story.dart to make this work.
-int currentStory = 0;
+int _currentStory = 0;
 
 class StoryBrain {
 
@@ -36,39 +36,51 @@ class StoryBrain {
       storyTitle:
       'You bond with the murderer while crooning verses of "Can you feel the love tonight". He drops you off at the next town. Before you go he asks you if you know any good places to dump bodies. You reply: "Try the pier".',
       choice1: 'Restart',
-      choice2: '')
+      choice2: ''),
   ];
 
   String getStory() {
-    return(_storyData[currentStory].storyTitle);
+    return(_storyData[_currentStory].storyTitle);
   }
 
   String getChoice1() {
-    return(_storyData[currentStory].choice1);
+    return(_storyData[_currentStory].choice1);
   }
 
   String getChoice2() {
-    return(_storyData[currentStory].choice2);
+    return(_storyData[_currentStory].choice2);
   }
 
+
   void nextStory(int choiceNumber) {
-    if(choiceNumber == 1 && currentStory == 0) {
-      currentStory = 2;
-    } else if(choiceNumber == 1 && currentStory == 1) {
-      currentStory = 2;
+    if(choiceNumber == 1 && _currentStory == 0) {
+      _currentStory = 2;
+    } else if(choiceNumber == 1 && _currentStory == 1) {
+      _currentStory = 2;
     }
-    else if(choiceNumber == 2 && currentStory == 0) {
-      currentStory = 1;
+    else if(choiceNumber == 2 && _currentStory == 0) {
+      _currentStory = 1;
     } 
-    else if(choiceNumber == 2 && currentStory == 1) {
-      currentStory = 3;
+    else if(choiceNumber == 2 && _currentStory == 1) {
+      _currentStory = 3;
+      //reset();
     } 
-    else if(choiceNumber == 2 && currentStory == 2) {
-      currentStory = 4;
+    else if(choiceNumber == 2 && _currentStory == 2) {
+      _currentStory = 4;
+      //reset();
     } 
-    else if(choiceNumber == 1 && currentStory == 2) {
-      currentStory = 5;
+    else if(choiceNumber == 1 && _currentStory == 2) {
+      _currentStory = 5;
+      //reset();
     } 
+  }
+
+  void reset() {
+    _currentStory = 0;
+  }
+
+  bool buttonShouldBeVisible() {
+    return(_currentStory <= 2 ? true : false);
   }
 
 }
